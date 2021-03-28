@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1000px" height="600px" style="border:1px solid #d3d3d3;"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    class Car {
+        x
+        y
+        height
+        width
+        speed
+        constructor(x, y, height, width, speed) {
+            this.x = x;
+            this.y = y;
+            this.height = height;
+            this.width = width;
+            this.speed = speed;
+        }
+        drawCar() {
+            let image = new Image(this.width, this.height);
+            image.src = "clipart191696.png";
+            image.onload = () => {
+                ctx.drawImage(image, this.x, this.y);
+            }
+            ctx.drawImage(image, this.x, this.y);
+        }
+        moveUp() {
+            this.y = this.y - this.speed;
+        }
+        moveDown() {
+            this.y = this.y + this.speed;
+        }
+        moveRight() {
+            this.x = this.x + this.speed;
+        }
+        moveLeft() {
+            this.x = this.x - this.speed;
+        }
+    }
+    function move(event) {
+        switch (event.keyCode) {
+            case 37:
+                car.moveLeft();
+                break;
+            case 38:
+                car.moveUp();
+                break;
+            case 39:
+                car.moveRight();
+                break;
+            case 40:
+                car.moveDown();
+                break;
+        }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        car.drawCar();
+    }
+    var car = new Car(50, 100, 200, 100, 60);
+    car.drawCar();
+    // window.addEventListener("keydown", move);
+    setInterval(function (){
+        car.moveDown()
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        car.drawCar();
+    }, 100);
+</script>
