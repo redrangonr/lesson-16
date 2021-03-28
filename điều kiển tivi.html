@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>điều kiển tivi</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+    class Remote{
+        status;
+        tivi;
+        chage;
+        constructor() {
+            this.status = true
+        }
+        conetToTivi(Tivi){
+            this.tivi=Tivi
+        }
+        switchOff() {
+            this.tivi.turnOff()
+        }
+
+        switchOn() {
+            this.tivi.turnOn()
+        }
+        getchage(){
+            alert("nhập kênh")
+            return this.chage
+        }
+    }
+    class Tivi{
+        chage;
+        status;
+        volume;
+        constructor(volume,chage) {
+            this.status = true
+            this.volume = volume
+        }
+        turnOn() {
+            this.status = true
+        }
+
+        turnOff() {
+            this.status = false
+        }
+        getvolume(){
+            return this.volume
+        }
+        decreaseVolume(){
+            if(this.volume>0){
+                this.volume --;
+            }
+    }increaseVolume(){
+            if(this.volume<100){
+                this.volume++
+            }else {
+                alert("max volume")
+            }
+        }chage(){
+            this.chage.getchage()
+            alert(this.chage)
+        }
+    }
+
+</script>

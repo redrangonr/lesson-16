@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>adam và eva</title>
+</head>
+<body>
+<p id="result"></p>
+<p id="result2"></p>
+<p id="result3"></p>
+<button onclick="anTao()" id="button">ăn táo</button>
+</body>
+</html>
+<script>
+    class Appple {
+        weight;
+
+        constructor(w) {
+            this.weight = w;
+        }
+
+        decreaseApple() {
+            if (this.weight > 0) {
+                this.weight--;
+            }
+        }
+
+        isEmpty() {
+            if (this.weight > 0) {
+                return true
+            } else {
+                alert("không còn táo")
+                return false
+            }
+        }
+
+        getWeight() {
+            return this.weight
+        }
+    }
+
+    class Humman {
+        name;
+        gender;
+        weight;
+
+        constructor(name, weight, gender) {
+            this.weight = weight;
+            this.gender = gender;
+            this.name = name;
+        }
+
+        eat(apple) {
+            if (this.weight > 0) {
+                apple.weight--;
+                this.weight++;
+            }
+        }
+
+        checkApple(apple) {
+            apple.isEmpty()
+        }
+
+        isMale() {
+            if (this.gender === "Male") {
+                return true
+            } else {
+                return false
+            }
+        }
+
+        setGender(gender) {
+            this.gender = gender
+        }
+
+        say() {
+            if (this.isMale() === true) {
+                alert(" Adam ăn táo")
+                document.getElementById("result").innerHTML = " Adam ăn táo"
+            } else {
+                alert("Eva ăn táo")
+                document.getElementById("result").innerHTML = "Eva ăn táo"
+            }
+        }
+
+        getName() {
+            return this.name
+        }
+
+        setName(name) {
+             this.name =name
+        }
+
+        getWeight() {
+            return this.weight
+        }
+
+        setWeight(weight) {
+            this.weight =weight
+        }
+    }
+
+    var apple = new Appple(100)
+    var human1 = new Humman("adam", 70, "Male")
+    var human2 = new Humman("eve", 60, "Female")
+
+    function anTao() {
+        human1.say();
+        human1.eat(apple);
+        document.getElementById("result3").innerHTML =("Cân nặng của Adam"+human1.weight)
+        document.getElementById("result").innerHTML = ("Trọng lượng của táo"+apple.weight)
+        human2.say();
+        human2.eat(apple);
+        document.getElementById("result2").innerHTML = ("Cân nặng của eva"+human2.weight)
+        document.getElementById("result").innerHTML = ("Cân nặng cảu táo"+apple.weight)
+
+    }
+
+
+</script>

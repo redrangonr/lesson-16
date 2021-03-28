@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+<p id="pin"></p>
+<p  id="name"></p>
+</div>
+<div>
+    <p id="pin2"></p>
+    <p id="name2"></p>
+
+<button id="1" onclick="On()">on</button>
+<button id="2" onclick="Send()">send</button>
+<button id="3" onclick="Charge">charge</button>
+<button id="4" onclick="Off">off</button>
+<input type="text" id="text" style="height:50px ; width:360px">
+
+</div>
+</body>
+</html>
+<script>
+    class Phone{
+        status;
+        pin;
+        name;
+        sent=[];
+        inbox;
+        draft=[]
+
+        constructor(pin,name) {
+            this.pin=pin
+            this.name=name
+        }
+        showPin(){
+            return this.pin;
+        }
+        showName(){
+            return this.name
+        }
+        charge(){
+            if(this.pin<100){
+                this.pin++
+            }else if(this.pin===100){
+                alert("power full")
+            }
+        }
+        on(){
+            if(this.pin>0) {
+                alert("on")
+                return this.status = true
+            }
+            else {
+                alert("charge")
+            }
+
+        }
+        off(){
+            alert("off")
+            return this.status =false
+        }
+        save(message){
+            this.draft.push(message)
+            this.pin--
+        }
+        send(message){
+            this.sent.push(message)
+            this.pin--
+            this.draft.push(message)
+        }
+        get pin(){
+            return this.pin
+        }
+        set pin(pin){
+            this.pin =pin
+        }
+        name(){
+            return this.name
+        }
+    }
+    let nokia =new Phone(100,nokia)
+    let iphone= new Phone(100,iphone)
+
+    document.getElementById("pin").innerHTML=nokia.showPin()
+    document.getElementById("pin2").innerHTML=iphone.showPin()
+    document.getElementById("name").innerHTML= nokia.name
+    document.getElementById("name2").innerHTML=iphone.name
+
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lớp nhiệt độ temparature</title>
+</head>
+<body>
+<script>
+    class Tempurature{
+     constructor() {
+         this.C=C
+     }
+
+        this.getC=function (){
+            return C
+        }
+        get CtoF  (){
+            return C*1.8+32
+        }
+        get CtoK (){
+            return C +273
+        }
+    }
+    let a = parseInt(prompt("nhập độ C: "))
+    let tempurature=new Tempurature(a)
+    let C = tempurature.getC
+    let CtoF = tempurature.CtoF()
+    let CtoK = tempurature.CtoK()
+    alert("Độ F "+CtoF+"; Độ K "+CtoK)
+</script>
+</body>
+</html>

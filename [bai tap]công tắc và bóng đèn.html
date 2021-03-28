@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="pngtree-orange-light-bulb-icon-png-transparent-layer-material-light-bulb-iconcartoon-png-image_4006558.jpg"
+     height="200" width="200 " id="toi"/>
+<button onclick="battat()" id="button">on/off</button>
+</body>
+</html>
+<script>
+    var arr = [
+        "pngtree-creative-idea-icon-png-image_1004307.jpg",
+        "pngtree-orange-light-bulb-icon-png-transparent-layer-material-light-bulb-iconcartoon-png-image_4006558.jpg"
+    ]
+
+    class Switchbutton {
+        status;
+        lamp;
+
+        constructor() {
+            this.status = true;
+        }
+
+        conetToLamp(ElectricLamp) {
+            this.lamp = ElectricLamp
+        }
+
+        switchOff() {
+            this.lamp.turnOff()
+        }
+
+        switchOn() {
+            this.lamp.turnOn()
+        }
+    }
+
+    class ElectricLamp {
+        status;
+
+        constructor() {
+            this.status = true;
+        }
+
+        turnOn() {
+            this.status = true
+        }
+
+        turnOff() {
+            this.status = false
+        }
+    }
+
+    var a = new Switchbutton()
+    var b = new ElectricLamp()
+    a.conetToLamp(b);
+
+    function battat() {
+        if (b.status == true) {
+            a.switchOff();
+            document.getElementById("toi").src = arr[0]
+        } else {
+            a.switchOn();
+            document.getElementById("toi").src = arr[1]
+        }
+    }
+</script>
